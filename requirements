@@ -1,0 +1,60 @@
+[1] Installing pip dependencies instructions
+
+<Installing python libraries for windows>
+This guide serves as a step by step process for setting up and validating the web3.py, bit, and hd-wallet-derive libraries used to programmatically send and receive transactions over a blockchain network via virtual wallets. Without these libraries, class activities and their associated code will not be able to perform the necessary operations.
+
+1. Open a terminal and execute the following commands to install web3.py and bit, respectively. Windows users MUST use the Anaconda Prompt in this section.
+
+2. Open the terminal and in the base environment, run the following code in order:
+ conda update conda
+ conda update anaconda
+
+3. Run the following command to create a brand new Python virtual environment for this unit.
+ conda create -n ethereum python=3.7 anaconda
+
+4. Activate the new environment.
+ conda activate ethereum
+
+5. Use the pip install command to download and install the web3.py module.
+ pip install web3
+
+6. Use the pip install command to download and install the bit module.
+ pip install bit 
+
+
+
+[2] Installing hd-wallet-derive
+
+1. With the latest version of PHP installed on our machines, we can now proceed to the installation of the hd-wallet-derive library.
+
+2. Begin by opening a fresh terminal. Windows users must open their terminal as administator as follows:
+ Input C:\Program Files\Git\bin\bash.exe directly into the system search bar and launch the program as Administrator from the resulting menu.
+
+3. With your terminal open as indicated for your operating system, cd into your `Blockchain-Tools folder and run the following code:
+   git clone https://github.com/dan-da/hd-wallet-derive
+  cd hd-wallet-derive
+  curl https://getcomposer.org/installer -o installer.php
+  php installer.php
+  php composer.phar install
+
+4.  You should now have a folder called hd-wallet-derive containing the PHP library!
+
+
+[3] Creating a symlink called "derive" for the hd-wallet-derive/hd-wallet-derive.php script into the top level project folder(Blockchain-Tools folder in the below example). This will clean up the command needed to run the script in our code, as we can call ./derive instead of ./hd-wallet-derive/hd-wallet-derive.php.
+
+<Steps for creating hd-wallet Symlink on Gitbash as administrator>
+1	cd  ..../Blockchain-Tools/hd-wallet-derive
+: This is an example file path. Go to hd-wallet-derive folder.
+
+2	export MSYS=winsymlinks:nativestric
+: Run the code above on Gitbash opened as administrator
+
+3	cd ..
+: Go back to Blockchain-Tools folder.
+
+4	ln -s hd-wallet-derive/hd-wallet-derive.php derive
+: Run the above code on Gitbash
+
+5	./derive -g --mnemonic="YOUR MNEMONIC GOES HERE" --cols=path,address,privkey,pubkey 
+: Run the above code on Gitbash to see the wallet addresses using your own 12 mnemonic phrase inside the quotes.
+
